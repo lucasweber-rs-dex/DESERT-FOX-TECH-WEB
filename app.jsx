@@ -66,7 +66,9 @@ const btn = 'inline-flex min-h-[48px] items-center justify-center bg-fox px-7 te
 function Nav() {
   return (
     <header className="flex items-center justify-between py-4">
-      <a href="#top" className="flex min-h-[44px] items-center text-lg font-extrabold tracking-tight">DEX-TECH-LABS</a>
+      <a href="#top" className="flex min-h-[44px] items-center">
+        <img src="assets/logo-dex-tech.png" width="988" height="126" alt="DEX-TECH" className="h-6 w-auto sm:h-8" />
+      </a>
       <nav aria-label="Principal" className="flex items-center gap-1 sm:gap-3 text-base font-medium">
         <a href="#noticias" className="hidden min-h-[44px] items-center px-3 sm:flex">Notícias</a>
         <a href="#artigos" className="hidden min-h-[44px] items-center px-3 sm:flex">Artigos</a>
@@ -78,26 +80,18 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="grid bg-sand lg:min-h-[min(70svh,602px)] lg:grid-cols-[7fr_5fr] xl:grid-cols-[6fr_6fr]">
+    <section id="top" className="bg-sand">
       <div className="flex flex-col px-4 pb-[2.1rem] sm:px-8 lg:pb-[2.8rem]">
         <Nav />
         <div className="flex flex-1 flex-col justify-center gap-[1.4rem] pt-[2.1rem] lg:pt-[1.4rem]">
           <h1 className="m-0 text-[clamp(31px,10.15vw,59px)] font-extrabold leading-[.92] tracking-[-.04em] lg:text-[clamp(50px,5.6vw,90px)]">
-            <Reveal as="span" className="block">Sinal.</Reveal>
-            <Reveal as="span" delay={90} className="block">Sem ruído.</Reveal>
+            <Reveal as="span" className="block">Conteúdo</Reveal>
+            <Reveal as="span" delay={90} className="block">Sem Limites</Reveal>
           </h1>
-          <Reveal delay={200} as="p" className="m-0 max-w-[30ch] text-xl leading-snug">
-            Notícias e análises de tecnologia, filtradas por quem escuta de longe.
-          </Reveal>
-          <Reveal delay={300}>
-            <a href="#newsletter" className={btn}>Assinar a newsletter</a>
+          <Reveal delay={200}>
+            <a href="#newsletter" className={btn}>Teste Agora!</a>
           </Reveal>
         </div>
-      </div>
-      <div className="relative min-h-[226px] overflow-hidden md:min-h-[338px] lg:min-h-0">
-        <img src="assets/hero-antena.webp" width="1536" height="1024" fetchpriority="high"
-          alt="Grande antena parabólica de radiotelescópio sob céu azul, no meio do deserto com arbustos secos e montanhas ao fundo"
-          className="hero-img absolute inset-0 h-full w-full object-cover [object-position:54%_50%]" />
       </div>
     </section>
   );
@@ -120,7 +114,7 @@ function News() {
     <section id="noticias" className="px-4 py-[clamp(72px,10vw,160px)] sm:px-8">
       <div className="mx-auto max-w-[1280px]">
         <Reveal as="h2" className="m-0 max-w-[16ch] text-[clamp(36px,5vw,72px)] font-extrabold leading-[.98] tracking-[-.03em]">
-          Quatro histórias da semana
+          Fique Por Dentro
         </Reveal>
         <div className="mt-10 grid gap-6 lg:mt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
           <Reveal delay={80} role="tablist" aria-label="Notícias" aria-orientation="vertical" className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:flex lg:flex-col" onKeyDown={onKey}>
@@ -268,7 +262,7 @@ function Footer() {
           </ul>
         </nav>
       </div>
-      <p className="mx-auto mt-14 max-w-[1280px] whitespace-nowrap text-[clamp(36px,9.4vw,150px)] font-extrabold leading-[.9] tracking-[-.04em]">DEX-TECH-LABS</p>
+      <img src="assets/logo-dex-tech.png" width="988" height="126" alt="DEX-TECH" className="mx-auto mt-14 block h-auto w-full max-w-[1280px]" />
       <div className="mx-auto mt-10 max-w-[1280px] text-sm leading-relaxed">
         <p className="m-0">© {new Date().getFullYear()} DEX-TECH-LABS</p>
         <p className="m-0 mt-2 max-w-[75ch]">Fotos: <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sahara_Night_Sky_(229876491).jpeg">“Sahara Night Sky”</a> por Dominik Angstwurm (CC BY-SA 3.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sleeping_Vulpes_zerda_at_Happy_Hollow,_closeup.jpg">raposa-do-deserto dormindo</a> por Grendelkhan (CC BY-SA 4.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:The_Atacama_Large_Millimeter_Array_(ALMA)_by_night,_under_the_Magellanic_Clouds.jpg">ALMA à noite</a> por ESO/C. Malin (CC BY 4.0). Via Wikimedia Commons.</p>
@@ -282,6 +276,9 @@ function App() {
     <div className="min-h-[100svh] overflow-x-hidden bg-paper">
       <a href="#conteudo" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-3 focus:text-paper">Pular para o conteúdo</a>
       <Hero /><main id="conteudo"><News /><Articles /><Banner /><Newsletter /></main><Footer />
+      <a href="https://wa.me/message/LMSCMAX6STYMM1?src=qr" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" className="fixed bottom-4 right-4 z-50 block h-16 w-16 transition duration-200 hover:scale-110">
+        <img src="assets/whatsapp.png" width="600" height="600" alt="" className="h-full w-full" />
+      </a>
     </div>
   );
 }

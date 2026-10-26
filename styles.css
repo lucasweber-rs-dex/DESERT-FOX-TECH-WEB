@@ -30,13 +30,9 @@ a:hover { color: #b84300; }
 .swap { animation: swap .45s cubic-bezier(.2,.7,.2,1); }
 @keyframes swap { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
-/* Foto do hero: deriva lenta, uma vez ao carregar */
-.hero-img { animation: drift 2.4s cubic-bezier(.2,.7,.2,1) both; }
-@keyframes drift { from { transform: scale(1.08); } to { transform: scale(1); } }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .rv { opacity: 1; transform: none; transition: none; }
-  .swap, .hero-img { animation: none; }
+  .swap { animation: none; }
   * { transition-duration: .01ms !important; }
 }
