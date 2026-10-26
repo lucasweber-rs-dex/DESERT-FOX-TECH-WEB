@@ -142,7 +142,7 @@ function News() {
                 <img src={n.img} alt={n.alt} width="1920" height="1280" loading="lazy"
                   className="aspect-[3/2] w-full object-cover" style={{ objectPosition: n.pos }} />
               )}
-              <div className="flex flex-col gap-4 p-6 sm:p-9">
+              <div className="flex flex-col gap-4 bg-[#E74C3C] p-6 sm:p-9">
                 <h3 className="m-0 text-[clamp(26px,3vw,40px)] font-extrabold leading-[1.05] tracking-[-.02em]">{n.tab}</h3>
                 <p className="m-0 max-w-[60ch] text-lg leading-relaxed">{n.text}</p>
                 {n.href && <a href={n.href} className={btn + ' self-start'}>Ler matéria completa</a>}
