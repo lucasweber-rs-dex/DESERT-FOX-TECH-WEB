@@ -13,9 +13,12 @@ const NEWS = [
     text: 'O app essencial para quem usa TV Box ou Fire TV Stick: instale aplicativos de fora da loja oficial usando só um link ou código. Veja o passo a passo completo.',
   },
   {
-    tab: 'Open source pede financiamento fixo',
-    tag: 'Software', author: 'DEX', date: 'Out 2026',
-    text: 'Projetos usados por milhões de empresas ainda dependem de poucas pessoas. Mapeamos quem paga, quem não paga e quais modelos de apoio já funcionam.',
+    tab: 'INSTALANDO UNITV DE MANEIRA FÁCIL',
+    tag: 'Tutorial', author: 'DEX', date: 'Out 2026',
+    img: 'assets/Publi/UniTV/capa-home.webp', pos: '50% 50%',
+    alt: 'Capa do tutorial Instalando UniTV: ícones do Downloader e do UniTV lado a lado sobre fundo escuro com brilho laranja',
+    href: 'unitv.html',
+    text: 'Aprenda o passo a passo completo de como baixar e instalar o aplicativo UniTV no seu dispositivo de forma rápida e fácil utilizando o app Downloader.',
   },
   {
     tab: 'IA no celular: o que roda offline',

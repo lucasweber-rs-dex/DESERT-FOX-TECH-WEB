@@ -19,7 +19,7 @@ Uma única página, montada em `app.jsx`.
 | Seção | Âncora | Comportamento |
 | --- | --- | --- |
 | Hero | `#top` | Título “Sinal. Sem ruído.”, chamada para a newsletter e a arte `assets/tech-park-sam.png`. |
-| Notícias | `#noticias` | Quatro abas. A aba ativa troca o texto do painel `#painel-noticia`. A matéria “Open source pede financiamento fixo” não tem foto. |
+| Notícias | `#noticias` | Quatro abas. A aba ativa troca o texto do painel `#painel-noticia`. A matéria “INSTALANDO UNITV DE MANEIRA FÁCIL” não tem foto. |
 | Artigos | `#artigos` | Três cards. “Sinal e ruído no seu feed” ocupa a coluna maior e leva a foto do ALMA. Os outros dois são só cor e texto. Os links apontam para `#`. |
 | Banner | sem âncora | Bloco “Leve tech: só o essencial”, com o céu do Saara à direita no desktop. |
 | Newsletter | `#newsletter` | Formulário de nome e e-mail. A validação acontece no navegador. Nenhum dado sai da página. |

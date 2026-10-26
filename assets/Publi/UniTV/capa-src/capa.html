@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa UniTV</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --sand:#c5b9a8; --paper:#f2f4f2; --ink:#22242a; --fox:#ff7a1a; --foxdark:#e8650a; --beige:#e4dccf; }
+  * { box-sizing:border-box; margin:0; }
+  html, body { width:1500px; height:1000px; overflow:hidden; background:var(--ink); }
+  body { font-family:'Manrope', system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  .c { position:relative; width:1500px; height:1000px; overflow:hidden; display:none; }
+  .c.on { display:block; }
+
+  /* Ícone do Downloader: recorte do logo oficial */
+  .dl { width:var(--s); height:var(--s); border-radius:calc(var(--s) * .22); background:#f37a24 url(downloader-mark.png) no-repeat center / 72%; flex:none; }
+  .uni { width:var(--s); height:var(--s); border-radius:calc(var(--s) * .22); background:#fff; display:grid; place-items:center; flex:none; }
+  .uni svg { width:calc(var(--s) * .5); height:calc(var(--s) * .5); }
+  .uni b { display:block; font-size:calc(var(--s) * .15); font-weight:800; color:#1d3a8a; letter-spacing:-.02em; margin-top:-2%; }
+  .uni .in { display:grid; justify-items:center; }
+
+  .chip { display:inline-flex; align-items:center; gap:12px; font-weight:700; font-size:26px; letter-spacing:.08em; text-transform:uppercase; }
+
+  /* A: editorial claro */
+  #a { background:var(--paper); }
+  #a .bar { position:absolute; inset:0 auto 0 0; width:22px; background:var(--fox); }
+  #a .txt { position:absolute; left:110px; top:110px; width:760px; }
+  #a .chip { color:var(--ink); }
+  #a .chip i { width:14px; height:14px; background:var(--fox); display:block; }
+  #a h1 { margin-top:36px; font-size:178px; line-height:.86; font-weight:800; letter-spacing:-.055em; color:var(--ink); }
+  #a h1 span { color:var(--fox); }
+  #a h2 { margin-top:34px; font-size:56px; line-height:1.05; font-weight:700; letter-spacing:-.03em; color:var(--ink); }
+  #a .steps { position:absolute; left:110px; bottom:100px; display:flex; gap:14px; }
+  #a .steps span { font-size:26px; font-weight:700; padding:14px 22px; background:var(--beige); color:var(--ink); border-radius:999px; }
+  #a .steps span:first-child { background:var(--ink); color:var(--paper); }
+  #a .art { position:absolute; right:110px; top:150px; bottom:150px; width:420px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; }
+  #a .art .dl, #a .art .uni { --s:260px; box-shadow:0 30px 60px -20px rgba(34,36,42,.35); }
+  #a .art svg.arrow { width:60px; height:120px; }
+
+  /* B: escuro com brilho */
+  #b { background:radial-gradient(900px 600px at 78% 40%, rgba(255,122,26,.42), transparent 62%), radial-gradient(700px 500px at 10% 110%, rgba(197,185,168,.18), transparent 60%), var(--ink); }
+  #b .grid { position:absolute; inset:0; background-image:linear-gradient(rgba(242,244,242,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(242,244,242,.05) 1px, transparent 1px); background-size:60px 60px; mask-image:radial-gradient(circle at 70% 45%, #000, transparent 70%); }
+  #b .txt { position:absolute; left:110px; top:120px; width:720px; color:var(--paper); }
+  #b .chip { color:var(--fox); }
+  #b h1 { margin-top:34px; font-size:150px; line-height:.9; font-weight:800; letter-spacing:-.05em; }
+  #b h2 { margin-top:30px; font-size:50px; line-height:1.1; font-weight:500; letter-spacing:-.02em; color:var(--sand); }
+  #b h2 strong { color:var(--paper); font-weight:800; }
+  #b .pill { position:absolute; left:110px; bottom:110px; display:inline-flex; align-items:center; gap:14px; height:76px; padding:0 34px; background:var(--fox); color:var(--ink); font-size:28px; font-weight:800; border-radius:999px; }
+  #b .art { position:absolute; right:120px; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:40px; }
+  #b .glass { padding:28px; border-radius:72px; background:rgba(242,244,242,.08); border:1.5px solid rgba(242,244,242,.18); box-shadow:0 40px 80px -30px rgba(0,0,0,.6); }
+  #b .art .dl, #b .art .uni { --s:200px; }
+  #b .dots { display:flex; gap:12px; }
+  #b .dots i { width:14px; height:14px; border-radius:50%; background:var(--fox); display:block; }
+  #b .dots i:nth-child(2) { opacity:.6 } #b .dots i:nth-child(3) { opacity:.3 }
+
+  /* C: split laranja + tela de TV */
+  #c { background:var(--fox); }
+  #c .txt { position:absolute; left:100px; top:110px; width:640px; color:var(--ink); }
+  #c .chip i { width:14px; height:14px; background:var(--ink); display:block; border-radius:50%; }
+  #c h1 { margin-top:34px; font-size:132px; line-height:.88; font-weight:800; letter-spacing:-.05em; }
+  #c h2 { margin-top:30px; font-size:44px; line-height:1.12; font-weight:700; letter-spacing:-.02em; }
+  #c .row { position:absolute; left:100px; bottom:110px; display:flex; align-items:center; gap:22px; }
+  #c .row .dl { --s:104px; outline:6px solid var(--ink); }
+  #c .row .uni { --s:104px; outline:6px solid var(--ink); }
+  #c .row svg { width:56px; height:56px; }
+  #c .tv { position:absolute; right:-40px; top:150px; width:760px; height:500px; background:var(--ink); border-radius:34px 0 0 34px; padding:26px; }
+  #c .screen { width:100%; height:100%; border-radius:16px; background:linear-gradient(160deg,#2c2f37,#17181c); display:grid; place-items:center; position:relative; overflow:hidden; }
+  #c .screen .uni { --s:200px; }
+  #c .prog { position:absolute; left:60px; right:60px; bottom:56px; color:var(--paper); font-size:24px; font-weight:700; }
+  #c .prog .t { height:10px; border-radius:999px; background:rgba(242,244,242,.15); margin-top:14px; overflow:hidden; }
+  #c .prog .t i { display:block; height:100%; width:72%; background:var(--fox); border-radius:999px; }
+  #c .stand { position:absolute; left:1110px; top:650px; width:100px; height:70px; background:var(--ink); }
+  #c .stand::after { content:''; position:absolute; left:-90px; right:-90px; bottom:-14px; height:18px; border-radius:999px; background:var(--ink); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a1a"/><stop offset=".55" stop-color="#ef3b3b"/><stop offset="1" stop-color="#8b2fc9"/>
+    </linearGradient>
+    <symbol id="unimark" viewBox="0 0 100 100">
+      <path d="M50 8a42 42 0 1 1-36.4 63" fill="none" stroke="url(#ring)" stroke-width="11" stroke-linecap="round"/>
+      <path d="M40 30v40l32-20z" fill="url(#ring)" stroke="url(#ring)" stroke-width="6" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- A -->
+<section class="c" id="a">
+  <div class="bar"></div>
+  <div class="txt">
+    <span class="chip"><i></i>Tutorial · DEX-TECH-LABS</span>
+    <h1>Uni<span>TV</span><br>fácil.</h1>
+    <h2>Instale pelo app Downloader<br>em poucos minutos.</h2>
+  </div>
+  <div class="steps"><span>1 · Downloader</span><span>2 · Código</span><span>3 · UniTV</span></div>
+  <div class="art">
+    <div class="dl"></div>
+    <svg class="arrow" viewBox="0 0 60 120"><path d="M30 4v100M8 84l22 24 22-24" fill="none" stroke="#ff7a1a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 0"/></svg>
+    <div class="uni"><div class="in"><svg><use href="#unimark"/></svg><b>UniTV</b></div></div>
+  </div>
+</section>
+
+<!-- B -->
+<section class="c" id="b">
+  <div class="grid"></div>
+  <div class="txt">
+    <span class="chip">● Tutorial passo a passo</span>
+    <h1>Instalando<br>UniTV</h1>
+    <h2>de maneira fácil, usando<br>o app <strong>Downloader</strong></h2>
+  </div>
+  <div class="pill">▶ Assista ao vídeo</div>
+  <div class="art">
+    <div class="glass"><div class="dl"></div></div>
+    <div class="dots"><i></i><i></i><i></i></div>
+    <div class="glass"><div class="uni"><div class="in"><svg><use href="#unimark"/></svg><b>UniTV</b></div></div></div>
+  </div>
+</section>
+
+<!-- C -->
+<section class="c" id="c">
+  <div class="txt">
+    <span class="chip"><i></i>Tutorial · Passo a passo</span>
+    <h1>Instalando UniTV</h1>
+    <h2>do jeito fácil, direto<br>pelo Downloader.</h2>
+  </div>
+  <div class="row">
+    <div class="dl"></div>
+    <svg viewBox="0 0 56 56"><path d="M6 28h40M32 12l16 16-16 16" fill="none" stroke="#22242a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="uni"><div class="in"><svg><use href="#unimark"/></svg><b>UniTV</b></div></div>
+  </div>
+  <div class="tv"><div class="screen">
+    <div class="uni"><div class="in"><svg><use href="#unimark"/></svg><b>UniTV</b></div></div>
+    <div class="prog">Instalando UniTV… 72%<div class="t"><i></i></div></div>
+  </div></div>
+  <div class="stand"></div>
+</section>
+
+<script>
+  document.getElementById(location.hash.slice(1) || 'a').classList.add('on');
+</script>
+</body>
+</html>
