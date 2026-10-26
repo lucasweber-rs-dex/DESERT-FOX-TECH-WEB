@@ -20,9 +20,9 @@ Uma única página, montada em `app.jsx`.
 | --- | --- | --- |
 | Hero | `#top` | Título “Sinal. Sem ruído.”, chamada para a newsletter e a foto `assets/hero-antena.webp`. |
 | Notícias | `#noticias` | Quatro abas. A aba ativa troca o texto do painel `#painel-noticia`. A matéria “INSTALANDO UNITV DE MANEIRA FÁCIL” não tem foto. |
-| Artigos | `#artigos` | Três cards. “Sinal e ruído no seu feed” ocupa a coluna maior e leva a foto do ALMA. Os outros dois são só cor e texto. Os links apontam para `#`. |
-| Banner | sem âncora | Bloco “Leve tech: só o essencial”, com o céu do Saara à direita no desktop. |
-| Newsletter | `#newsletter` | Formulário de nome e e-mail. A validação acontece no navegador. Nenhum dado sai da página. |
+| Artigos | `#artigos` | Três cards com resumo e tempo de leitura. “Qual aparelho comprar para a TV em 2026” ocupa a coluna maior e leva a capa `assets/Publi/Artigos/aparelhos.webp`. Cada card abre a sua página: `qual-aparelho.html`, `internet-4k.html` e `tvbox-segura.html`. |
+| Banner | sem âncora | Trilha “Comece por aqui” com três passos (array `STEPS`): escolher o aparelho, instalar o Downloader e escolher o app. À direita, um mosaico das capas de `assets/Poster` (array `MOSAIC`). |
+| Newsletter | `#newsletter` | “Novidades no seu e-mail”, com a lista do que chega por mês e um formulário de nome e e-mail. A validação acontece no navegador. Nenhum dado sai da página. |
 | Rodapé | sem âncora | Logo DEX-TECH e copyright. |
 
 O menu do topo leva a Notícias, Artigos e Newsletter. Há um link “Pular para o conteúdo” que aparece no foco do teclado.
@@ -78,7 +78,7 @@ Para encerrar, pare o processo no terminal (`Ctrl+C`).
 | Caminho | Função |
 | --- | --- |
 | `index.html` | Documento de entrada. Meta tags, fonte, Tailwind, React, Babel e a montagem de `#root`. |
-| `app.jsx` | Componentes: `Nav`, `Hero`, `News`, `Articles`, `Banner`, `Newsletter`, `Footer`, `App`. Também os arrays `NEWS` e `ARTICLES`. |
+| `app.jsx` | Componentes: `Nav`, `Hero`, `Posters`, `News`, `Articles`, `Banner`, `Newsletter`, `Footer`, `App`. Também os arrays `NEWS`, `POSTERS`, `ARTICLES`, `STEPS` e `MOSAIC`. |
 | `styles.css` | Cantos cortados, foco visível, animações e reduced motion. |
 | `assets/` | Fotos usadas na página e `credits.json`. |
 | `assets/credits.json` | Licença, autor e página no Wikimedia de cada foto de terceiros. |
@@ -94,23 +94,24 @@ Não há `vercel.json`, pasta `.github/workflows` nem variáveis de ambiente.
 Tudo que o visitante lê está em `app.jsx`, no topo do arquivo e no `Footer`.
 
 - **Notícias.** Array `NEWS`. Cada item tem `tab`, `tag`, `author`, `date`, `text` e, quando houver foto, `img`, `pos` e `alt`. Sem `img`, o painel mostra só o texto. O painel só renderiza a imagem se `n.img` existir.
-- **Artigos.** Array `ARTICLES`. `big: true` faz o card ocupar as duas linhas no desktop. `img` é opcional.
+- **Artigos.** Array `ARTICLES`. Cada item tem `title`, `desc`, `href`, `min` (minutos de leitura) e `tag`. `big: true` faz o card ocupar as duas linhas no desktop. `img` é opcional.
 - **Título e descrição do documento.** `<title>` e `<meta name="description">` em `index.html`.
 
 A newsletter, em `Newsletter`, exige um e-mail no formato `texto@texto.texto`. Com o campo válido, troca o formulário por uma mensagem de confirmação. Não há `fetch`, endpoint nem serviço de e-mail.
 
 ## Imagens e licenças
 
-Fotos de terceiros vêm do Wikimedia Commons. A ficha completa está em `assets/credits.json`. O crédito visível que as licenças exigem foi retirado do rodapé a pedido do autor (veja Limites atuais). Se trocar uma foto, atualize o arquivo, o `alt` e o JSON.
+As fotos do Wikimedia Commons continuam na pasta, mas a página não exibe mais nenhuma delas. A ficha de cada uma está em `assets/credits.json`. Se alguma voltar a aparecer, o crédito visível que a licença exige precisa voltar junto. Se trocar uma foto, atualize o arquivo, o `alt` e o JSON.
 
 | Arquivo | Onde aparece | Licença |
 | --- | --- | --- |
 | `assets/hero-antena.webp` | Hero | Imagem enviada pelo autor do projeto. Não entra em `credits.json`. |
-| `assets/sahara-night-sky.jpg` | Notícia “Chips de 2 nm…” e banner | “Sahara Night Sky”, Dominik Angstwurm, CC BY-SA 3.0 |
+| `assets/sahara-night-sky.jpg` | Não é mais exibida | “Sahara Night Sky”, Dominik Angstwurm, CC BY-SA 3.0 |
 | `assets/sleeping-vulpes-zerda-at-happy-hollow-closeup.jpg` | Não é mais exibida (a notícia virou “Nuvio, o novo no pedaço”) | Grendelkhan, CC BY-SA 4.0 |
 | `assets/Publi/Nuvio/capa-home.webp` | Notícia “Nuvio, o novo no pedaço” | Arte própria, feita com as capas de `assets/Poster`. Fonte em `assets/Publi/Nuvio/capa-src/`. |
+| `assets/Publi/Artigos/aparelhos.webp` | Artigo “Qual aparelho comprar para a TV em 2026” | Arte própria. Fonte em `assets/Publi/Artigos/capa-src/`. |
 | `assets/Publi/FireStick/capa-home.webp` | Notícia “Firestick, de herói a vilão” | Arte própria. Fonte em `assets/Publi/FireStick/capa-src/`. |
-| `assets/the-atacama-large-millimeter-array-alma-by.jpg` | Artigo “Sinal e ruído no seu feed” | ESO/C. Malin, CC BY 4.0 |
+| `assets/the-atacama-large-millimeter-array-alma-by.jpg` | Não é mais exibida | ESO/C. Malin, CC BY 4.0 |
 
 CC BY-SA pede que uma versão alterada (recorte de cor, montagem com outra imagem) saia com a mesma licença. Os arquivos acima são as fotos como foram salvas.
 
@@ -243,8 +244,6 @@ Para recriar a zona: mantenha os nameservers, apague A ou CNAME antigo de parkin
 ## Limites atuais
 
 - A newsletter confirma a inscrição só na tela.
-- Os artigos não abrem páginas reais.
 - Os textos das matérias são fictícios.
-- As fotos do Wikimedia Commons (CC BY e CC BY-SA) estão sem o crédito visível que as licenças exigem.
 - A ficha de “Night Skies at Little Sahara” em `credits.json` aponta para um arquivo que não está no repositório.
 - Os endereços `*.vercel.app` podem exigir login da Vercel. `https://desertfoxlabs.com` abre sem esse login.

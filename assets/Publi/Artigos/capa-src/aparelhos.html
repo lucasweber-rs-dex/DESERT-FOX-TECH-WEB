@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa: qual aparelho comprar</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --sand:#e2ded7; --paper:#efefef; --ink:#1e1e1e; --fox:#ff5e00; --warm:#83786f; }
+  * { box-sizing:border-box; margin:0; }
+  html, body { width:1600px; height:900px; overflow:hidden; }
+  body { font-family:'Manrope', system-ui, sans-serif; -webkit-font-smoothing:antialiased; position:relative;
+    background:radial-gradient(900px 600px at 50% 120%, rgba(255,94,0,.35), transparent 70%), var(--ink); color:var(--paper); }
+  .grid { position:absolute; inset:0; background-image:linear-gradient(rgba(239,239,239,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(239,239,239,.05) 1px, transparent 1px); background-size:64px 64px; }
+  .row { position:absolute; left:0; right:0; top:120px; display:flex; justify-content:center; align-items:flex-end; gap:56px; height:520px; }
+  .item { display:flex; flex-direction:column; align-items:center; gap:30px; }
+  .item b { font-size:30px; font-weight:800; letter-spacing:-.01em; }
+  .item small { display:block; font-size:22px; font-weight:700; color:var(--sand); margin-top:6px; text-align:center; }
+  .tag { height:46px; padding:0 20px; border-radius:999px; display:inline-flex; align-items:center; font-size:22px; font-weight:800; }
+  .ok { background:var(--fox); color:var(--ink); } .meh { background:rgba(239,239,239,.12); color:var(--paper); border:2px solid rgba(239,239,239,.25); }
+  .x { background:#c4001a; color:#fff; }
+  .vs { position:absolute; left:50%; bottom:70px; transform:translateX(-50%); font-size:64px; font-weight:800; letter-spacing:-.04em; white-space:nowrap; }
+  .vs span { color:var(--fox); }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="row">
+    <!-- TV Box -->
+    <div class="item">
+      <svg width="280" height="230" viewBox="0 0 280 230">
+        <rect x="20" y="80" width="240" height="110" rx="26" fill="#2c2c2c" stroke="#444" stroke-width="3"/>
+        <rect x="40" y="96" width="200" height="10" rx="5" fill="#ffffff" opacity=".08"/>
+        <circle cx="230" cy="160" r="7" fill="#ff5e00"/>
+        <path d="M70 80 L60 20 M210 80 L222 30" stroke="#555" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <div style="text-align:center"><b>TV Box</b><small>Android TV / Google TV</small></div>
+      <span class="tag ok">Mais liberdade</span>
+    </div>
+    <!-- Stick -->
+    <div class="item">
+      <svg width="160" height="330" viewBox="0 0 160 330">
+        <rect x="55" y="10" width="50" height="40" rx="6" fill="#9a9a9a"/>
+        <rect x="30" y="46" width="100" height="270" rx="26" fill="#2c2c2c" stroke="#444" stroke-width="3"/>
+        <rect x="44" y="60" width="16" height="240" rx="8" fill="#fff" opacity=".07"/>
+        <g transform="translate(55 150)"><path d="M10 26V16a20 20 0 0 1 40 0v10" fill="none" stroke="#e8e8e8" stroke-width="7"/><rect x="0" y="24" width="60" height="46" rx="8" fill="#e8e8e8"/></g>
+      </svg>
+      <div style="text-align:center"><b>Fire Stick novo</b><small>Vega OS</small></div>
+      <span class="tag x">Só a loja</span>
+    </div>
+    <!-- Puck -->
+    <div class="item">
+      <svg width="260" height="200" viewBox="0 0 260 200">
+        <ellipse cx="130" cy="150" rx="110" ry="36" fill="#222"/>
+        <path d="M20 110 Q20 70 130 70 Q240 70 240 110 L240 150 Q240 186 130 186 Q20 186 20 150 Z" fill="#e2ded7"/>
+        <ellipse cx="130" cy="110" rx="110" ry="36" fill="#f4f2ee"/>
+        <circle cx="130" cy="166" r="5" fill="#ff5e00"/>
+      </svg>
+      <div style="text-align:center"><b>Streamer</b><small>Google TV e similares</small></div>
+      <span class="tag ok">Equilíbrio</span>
+    </div>
+    <!-- Smart TV -->
+    <div class="item">
+      <svg width="340" height="270" viewBox="0 0 340 270">
+        <rect x="10" y="10" width="320" height="200" rx="14" fill="#2c2c2c" stroke="#444" stroke-width="3"/>
+        <rect x="24" y="24" width="292" height="172" rx="6" fill="#3a3a3a"/>
+        <g opacity=".9"><rect x="44" y="44" width="60" height="40" rx="6" fill="#ff5e00"/><rect x="114" y="44" width="60" height="40" rx="6" fill="#83786f"/><rect x="184" y="44" width="60" height="40" rx="6" fill="#83786f"/><rect x="254" y="44" width="42" height="40" rx="6" fill="#83786f"/></g>
+        <rect x="150" y="210" width="40" height="30" fill="#2c2c2c"/><rect x="100" y="238" width="140" height="14" rx="7" fill="#2c2c2c"/>
+      </svg>
+      <div style="text-align:center"><b>Smart TV</b><small>Sistema da própria TV</small></div>
+      <span class="tag meh">Depende da marca</span>
+    </div>
+  </div>
+  <p class="vs">Qual <span>levar</span> para a sala?</p>
+</body>
+</html>

@@ -39,9 +39,16 @@ const NEWS = [
 ];
 
 const ARTICLES = [
-  { title: 'Sinal e ruído no seu feed', img: 'assets/the-atacama-large-millimeter-array-alma-by.jpg', alt: 'Antenas do observatório ALMA sob o céu estrelado do Atacama', tag: 'Guia', tone: 'bg-ink text-paper', big: true },
-  { title: 'Seis ferramentas leves', tag: 'Produtividade', tone: 'bg-sand text-ink' },
-  { title: 'Privacidade sem paranoia', tag: 'Segurança', tone: 'bg-white text-ink' },
+  { title: 'Qual aparelho comprar para a TV em 2026', href: 'qual-aparelho.html', min: 6,
+    desc: 'TV Box, Fire Stick, streamer ou a própria Smart TV: o guia para escolher sem arrependimento.',
+    img: 'assets/Publi/Artigos/aparelhos.webp', alt: 'Ilustração de uma TV Box, um Fire Stick com cadeado, um streamer e uma Smart TV lado a lado, com a pergunta: qual levar para a sala?',
+    tag: 'Guia', tone: 'bg-ink text-paper', big: true },
+  { title: 'Internet para 4K: quanto você precisa', href: 'internet-4k.html', min: 4,
+    desc: 'Os megas certos para cada qualidade e cinco truques para o vídeo parar de travar.',
+    tag: 'Conexão', tone: 'bg-sand text-ink' },
+  { title: 'TV Box segura: 5 cuidados antes de instalar apps', href: 'tvbox-segura.html', min: 4,
+    desc: 'Liberdade sem dor de cabeça: hábitos simples para proteger o aparelho e os seus dados.',
+    tag: 'Segurança', tone: 'bg-white text-ink' },
 ];
 
 
@@ -272,14 +279,18 @@ function Articles() {
           {ARTICLES.map((a, k) => (
             <Reveal key={k} as="article" delay={k * 90}
               className={`group relative flex min-h-[220px] cursor-pointer flex-col justify-between gap-10 p-6 transition-transform duration-200 hover:-translate-y-1 sm:p-9 ${a.tone} ${a.big ? 'lg:row-span-2 lg:min-h-[480px]' : ''}`}>
-              {a.img && <img src={a.img} alt={a.alt} width="1920" height="1278" loading="lazy" className="-mx-6 -mt-6 mb-0 aspect-[16/9] w-[calc(100%+3rem)] max-w-none object-cover sm:-mx-9 sm:-mt-9 sm:w-[calc(100%+4.5rem)]" />}
-              <h3 className={`m-0 font-extrabold leading-[1.02] tracking-[-.02em] text-balance ${a.big ? 'max-w-[18ch] text-[clamp(34px,4.6vw,64px)]' : 'max-w-[24ch] text-[clamp(26px,2.4vw,32px)]'}`}>
-                <a href="#" className="after:absolute after:inset-0 hover:!text-inherit">{a.title}</a>
-              </h3>
+              {a.img && <img src={a.img} alt={a.alt} width="1600" height="900" loading="lazy" className="-mx-6 -mt-6 mb-0 aspect-[16/9] w-[calc(100%+3rem)] max-w-none object-cover sm:-mx-9 sm:-mt-9 sm:w-[calc(100%+4.5rem)]" />}
+              <div className="flex flex-col gap-3">
+                <h3 className={`m-0 font-extrabold leading-[1.02] tracking-[-.02em] text-balance ${a.big ? 'max-w-[18ch] text-[clamp(34px,4.6vw,64px)]' : 'max-w-[24ch] text-[clamp(26px,2.4vw,32px)]'}`}>
+                  <a href={a.href} className="after:absolute after:inset-0 hover:!text-inherit">{a.title}</a>
+                </h3>
+                <p className="m-0 max-w-[48ch] text-lg leading-relaxed">{a.desc}</p>
+              </div>
               <p className="m-0 flex flex-wrap items-center gap-x-5 gap-y-2 text-base">
                 <span className={`rounded-[3px] px-2.5 py-1 text-sm font-semibold ${a.big ? 'bg-fox text-ink' : 'bg-ink text-paper'}`}>{a.tag}</span>
                 <span>Por <strong>DEX</strong></span>
-                <span>Out 2026</span>
+                <span>{a.min} min de leitura</span>
+                <span aria-hidden="true" className="ml-auto text-2xl font-extrabold transition-transform duration-200 group-hover:translate-x-1">→</span>
               </p>
             </Reveal>
           ))}
@@ -289,16 +300,45 @@ function Articles() {
   );
 }
 
+/* Trilha do iniciante: liga os posts na ordem em que fazem sentido. */
+const STEPS = [
+  ['Escolha o aparelho', 'TV Box, stick ou streamer: qual combina com você.', 'qual-aparelho.html'],
+  ['Instale o Downloader', 'O app que abre a porta para tudo o que vem depois.', 'downloader.html'],
+  ['Escolha seu app', 'Do UniTV ao Nuvio, o novo no pedaço.', 'nuvio.html'],
+];
+const MOSAIC = ['img (6).jpg', 'minions.jpg', 'img.jpg', 'toystory5.jpg', 'robin.jpg', 'img (10).jpg', 'img (11).jpg', 'img (9).jpg', 'diad.jpg'];
+
 function Banner() {
   return (
     <section className="px-4 pb-[clamp(72px,10vw,160px)] sm:px-8">
       <Reveal className="cut-banner mx-auto grid max-w-[1280px] overflow-hidden rounded-[14px] bg-ink text-paper lg:grid-cols-[1fr_1fr]">
-        <div className="flex flex-col justify-end gap-6 p-[clamp(28px,4vw,56px)] pt-[clamp(72px,9vw,120px)]">
-          <h2 className="m-0 max-w-[18ch] text-[clamp(32px,4.2vw,56px)] font-extrabold leading-[1] tracking-[-.03em]">Leve tech: só o essencial</h2>
-          <p className="m-0 max-w-[36ch] text-lg leading-relaxed">Uma seleção curta do que vale a pena usar, comprar ou ignorar.</p>
+        <div className="flex flex-col gap-8 p-[clamp(28px,4vw,56px)] pt-[clamp(72px,9vw,120px)]">
+          <div className="flex flex-col gap-4">
+            <p className="m-0 text-sm font-extrabold uppercase tracking-[.14em] text-fox">Novo por aqui?</p>
+            <h2 className="m-0 max-w-[16ch] text-[clamp(32px,4.2vw,56px)] font-extrabold leading-[1] tracking-[-.03em]">Comece por aqui</h2>
+            <p className="m-0 max-w-[40ch] text-lg leading-relaxed">Três passos para transformar qualquer TV numa central de filmes e séries.</p>
+          </div>
+          <ol className="m-0 flex list-none flex-col gap-3 p-0">
+            {STEPS.map(([t, d, href], k) => (
+              <li key={k}>
+                <a href={href} className="group flex items-center gap-4 rounded-[10px] border border-paper/15 p-4 transition hover:!border-fox hover:!text-paper">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center bg-fox text-lg font-extrabold text-ink">{k + 1}</span>
+                  <span className="flex flex-col">
+                    <strong className="text-lg">{t}</strong>
+                    <span className="text-base text-sand">{d}</span>
+                  </span>
+                  <span aria-hidden="true" className="ml-auto text-xl font-extrabold transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </a>
+              </li>
+            ))}
+          </ol>
         </div>
-        <img src="assets/sahara-night-sky.jpg" alt="Céu estrelado sobre as dunas do Saara" width="1350" height="900" loading="lazy"
-          className="h-full min-h-[260px] w-full object-cover [object-position:60%_50%]" />
+        <div aria-hidden="true" className="relative min-h-[300px] overflow-hidden">
+          <div className="absolute -inset-[20%] grid rotate-[8deg] grid-cols-3 gap-3">
+            {MOSAIC.map(f => <img key={f} src={'assets/Poster/' + f} alt="" width="300" height="450" loading="lazy" className="aspect-[2/3] w-full rounded-[8px] object-cover" />)}
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/40 to-transparent lg:from-ink/90" />
+        </div>
       </Reveal>
     </section>
   );
@@ -319,10 +359,15 @@ function Newsletter() {
     <section id="newsletter" className="bg-fox px-4 py-[clamp(72px,10vw,140px)] text-ink sm:px-8">
       <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1fr_1fr] lg:gap-20">
         <Reveal as="h2" className="m-0 max-w-[12ch] text-[clamp(40px,6vw,88px)] font-extrabold leading-[.95] tracking-[-.04em]">
-          Uma carta por mês
+          Novidades no seu e-mail
         </Reveal>
         <Reveal delay={120}>
-          <p className="m-0 mb-6 max-w-[40ch] text-lg leading-relaxed">As melhores histórias do mês, sem spam. Cancele quando quiser.</p>
+          <p className="m-0 mb-4 max-w-[40ch] text-lg leading-relaxed">Um resumo por mês, sem spam. Cancele quando quiser.</p>
+          <ul className="m-0 mb-6 flex list-none flex-col gap-2 p-0 text-lg font-semibold">
+            <li>✓ Tutoriais novos, passo a passo</li>
+            <li>✓ Apps que valem a pena (e os que não valem)</li>
+            <li>✓ Alertas como o do Fire Stick, antes de você comprar</li>
+          </ul>
           {done ? (
             <div role="status" className="bg-paper p-6 text-lg">Obrigado, {form.name || 'leitor'}! Inscrição confirmada. A próxima carta chega no seu e-mail.</div>
           ) : (
