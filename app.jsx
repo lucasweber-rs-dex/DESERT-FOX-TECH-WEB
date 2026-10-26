@@ -5,11 +5,12 @@ document.documentElement.classList.add('js');
 /* Conteúdo de exemplo: trocar pelas matérias reais antes de publicar. */
 const NEWS = [
   {
-    tab: 'Chips de 2 nm chegam aos notebooks',
-    tag: 'Hardware', author: 'DEX', date: 'Out 2026',
-    img: 'assets/sahara-night-sky.jpg', pos: '50% 60%',
-    alt: 'Via Láctea sobre uma duna iluminada no Saara',
-    text: 'A nova geração de processadores reduz o consumo pela metade nas tarefas leves. O que isso muda na bateria, no preço e na hora de escolher o próximo aparelho.',
+    tab: 'DOWNLOADER Como Instalar ?',
+    tag: 'Tutorial', author: 'DEX', date: 'Out 2026',
+    img: 'assets/Publi/Downloader/logo.png', pos: '50% 50%',
+    alt: 'Logotipo do aplicativo Downloader, letra D branca com seta de download sobre fundo laranja',
+    href: 'downloader.html',
+    text: 'O app essencial para quem usa TV Box ou Fire TV Stick: instale aplicativos de fora da loja oficial usando só um link ou código. Veja o passo a passo completo.',
   },
   {
     tab: 'Open source pede financiamento fixo',
@@ -141,6 +142,7 @@ function News() {
               <div className="flex flex-col gap-4 p-6 sm:p-9">
                 <h3 className="m-0 text-[clamp(26px,3vw,40px)] font-extrabold leading-[1.05] tracking-[-.02em]">{n.tab}</h3>
                 <p className="m-0 max-w-[60ch] text-lg leading-relaxed">{n.text}</p>
+                {n.href && <a href={n.href} className={btn + ' self-start'}>Ler matéria completa</a>}
                 <p className="m-0 flex flex-wrap items-center gap-x-5 gap-y-2 text-base">
                   <span className="rounded-[3px] bg-ink px-2.5 py-1 text-sm font-semibold text-paper">{n.tag}</span>
                   <span>Por <strong>{n.author}</strong></span>
