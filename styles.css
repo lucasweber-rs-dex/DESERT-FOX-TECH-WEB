@@ -36,3 +36,7 @@ a:hover { color: #b84300; }
   .swap { animation: none; }
   * { transition-duration: .01ms !important; }
 }
+
+/* Carrossel de capas: as bordas somem num degradê */
+.poster-rail { -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }

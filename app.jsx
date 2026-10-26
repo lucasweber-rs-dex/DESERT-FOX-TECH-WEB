@@ -97,6 +97,113 @@ function Hero() {
   );
 }
 
+const POSTERS = [
+  ['minions.jpg', 'Minions & Monsters'],
+  ['img.jpg', 'Spider-Man: Brand New Day'],
+  ['img (6).jpg', 'Project Hail Mary'],
+  ['toystory5.jpg', 'Toy Story 5'],
+  ['img (11).jpg', 'The Punisher: One Last Kill'],
+  ['img (10).jpg', 'Avatar Aang: The Last Airbender'],
+  ['diad.jpg', 'Disclosure Day'],
+  ['img (4).jpg', 'Coyote vs. Acme'],
+  ['robin.jpg', 'The Death of Robin Hood'],
+  ['img (7).jpg', 'The Uprising'],
+  ['img (9).jpg', 'The End of Oak Street'],
+  ['img (8).jpg', 'The Invite'],
+  ['wheight.jpg', 'The Weight'],
+];
+
+/* Carrossel de capas: gira sozinho em loop, para com o mouse em cima, aceita arrastar
+   e só anima quando está na tela. Com "reduzir movimento" ele começa parado. */
+function Posters() {
+  const wrap = useRef(null), track = useRef(null);
+  const reduce = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const [playing, setPlaying] = useState(!reduce);
+  const s = useRef({ x: 0, v: 0, hover: false, drag: null, visible: true, glide: null, playing: !reduce });
+  s.current.playing = playing;
+
+  useEffect(() => {
+    const st = s.current, el = track.current;
+    const setW = () => el.scrollWidth / 2;
+    const cardW = () => { const c = el.firstElementChild; return c ? c.getBoundingClientRect().width + 16 : 200; };
+    const base = () => Math.max(28, innerWidth * 0.035); // px por segundo
+    let raf, last = performance.now();
+    const tick = now => {
+      const dt = Math.min(now - last, 64) / 1000; last = now;
+      if (st.glide) {
+        const t = Math.min((now - st.glide.t0) / 450, 1), e = 1 - Math.pow(1 - t, 3);
+        st.x = st.glide.from + (st.glide.to - st.glide.from) * e;
+        if (t === 1) st.glide = null;
+      } else if (!st.drag) {
+        const target = st.playing && !st.hover && st.visible && !document.hidden ? base() : 0;
+        st.v += (target - st.v) * Math.min(dt * 3, 1); // acelera e freia suave
+        st.x += st.v * dt;
+      }
+      const w = setW();
+      if (w > 0) st.x = ((st.x % w) + w) % w;
+      el.style.transform = `translate3d(${-st.x}px,0,0)`;
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    st.step = d => { st.glide = { from: st.x, to: st.x + d * cardW(), t0: performance.now() }; };
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver(([e]) => { st.visible = e.isIntersecting; }) : null;
+    io && io.observe(wrap.current);
+    return () => { cancelAnimationFrame(raf); io && io.disconnect(); };
+  }, []);
+
+  const down = e => {
+    if (e.button && e.button !== 0) return;
+    s.current.drag = { x0: e.clientX, start: s.current.x, lx: e.clientX, lt: performance.now(), moved: false };
+    s.current.glide = null;
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+  const move = e => {
+    const d = s.current.drag; if (!d) return;
+    const now = performance.now();
+    s.current.v = -(e.clientX - d.lx) / Math.max((now - d.lt) / 1000, 0.001);
+    d.lx = e.clientX; d.lt = now;
+    if (Math.abs(e.clientX - d.x0) > 4) d.moved = true;
+    s.current.x = d.start - (e.clientX - d.x0);
+  };
+  const up = () => { const st = s.current; if (!st.drag) return; st.drag = null; st.v = Math.max(-2500, Math.min(2500, st.v)); };
+  const key = e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); s.current.step(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); s.current.step(-1); }
+  };
+  const ctl = 'grid h-12 w-12 place-items-center rounded-full border-2 border-paper/30 text-lg font-bold text-paper transition hover:border-fox hover:bg-fox hover:text-ink';
+
+  return (
+    <section id="filmes" aria-roledescription="carrossel" aria-label="Capas de filmes" className="overflow-hidden bg-ink py-[clamp(56px,7vw,112px)] text-paper">
+      <div className="mx-auto flex max-w-[1280px] flex-wrap items-end justify-between gap-6 px-4 sm:px-8">
+        <Reveal as="h2" className="m-0 text-[clamp(32px,4.4vw,64px)] font-extrabold leading-[.98] tracking-[-.03em]">
+          Em destaque
+        </Reveal>
+        <div className="flex gap-3">
+          <button type="button" aria-label="Filme anterior" className={ctl} onClick={() => s.current.step(-1)}>←</button>
+          <button type="button" aria-label={playing ? 'Pausar carrossel' : 'Retomar carrossel'} className={ctl} onClick={() => setPlaying(p => !p)}>{playing ? '❚❚' : '▶'}</button>
+          <button type="button" aria-label="Próximo filme" className={ctl} onClick={() => s.current.step(1)}>→</button>
+        </div>
+      </div>
+      <div ref={wrap} tabIndex={0} onKeyDown={key}
+        onMouseEnter={() => (s.current.hover = true)} onMouseLeave={() => (s.current.hover = false)}
+        onFocus={() => (s.current.hover = true)} onBlur={() => (s.current.hover = false)}
+        onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}
+        className="poster-rail mt-10 cursor-grab touch-pan-y select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-fox active:cursor-grabbing lg:mt-14">
+        <ul ref={track} className="m-0 flex w-max list-none gap-4 p-0 will-change-transform">
+          {[...POSTERS, ...POSTERS].map(([f, t], k) => (
+            <li key={k} aria-hidden={k >= POSTERS.length || undefined}
+              className="group relative w-[clamp(140px,17vw,230px)] shrink-0 overflow-hidden rounded-[10px] bg-[#2a2a2a]">
+              <img src={'assets/Poster/' + f} alt={k < POSTERS.length ? 'Capa do filme ' + t : ''} width="300" height="450"
+                loading="lazy" draggable="false" className="block aspect-[2/3] w-full object-cover transition duration-500 group-hover:scale-[1.06]" />
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-3 pb-3 pt-10 text-sm font-bold leading-tight opacity-0 transition duration-300 group-hover:opacity-100">{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 /* A interação central: escolher uma notícia troca a matéria em destaque. */
 function News() {
   const [i, setI] = useState(0);
@@ -275,7 +382,7 @@ function App() {
   return (
     <div className="min-h-[100svh] overflow-x-hidden bg-paper">
       <a href="#conteudo" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-3 focus:text-paper">Pular para o conteúdo</a>
-      <Hero /><main id="conteudo"><News /><Articles /><Banner /><Newsletter /></main><Footer />
+      <Hero /><main id="conteudo"><Posters /><News /><Articles /><Banner /><Newsletter /></main><Footer />
       <a href="https://wa.me/message/LMSCMAX6STYMM1?src=qr" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" className="fixed bottom-4 right-4 z-50 block h-16 w-16 transition duration-200 hover:scale-110">
         <img src="assets/whatsapp.png" width="600" height="600" alt="" className="h-full w-full" />
       </a>
