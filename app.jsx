@@ -39,7 +39,7 @@ const NEWS = [
 const ARTICLES = [
   { title: 'Sinal e ruído no seu feed', img: 'assets/the-atacama-large-millimeter-array-alma-by.jpg', alt: 'Antenas do observatório ALMA sob o céu estrelado do Atacama', tag: 'Guia', tone: 'bg-ink text-paper', big: true },
   { title: 'Seis ferramentas leves', tag: 'Produtividade', tone: 'bg-sand text-ink' },
-  { title: 'Privacidade sem paranoia', tag: 'Segurança', tone: 'bg-[#e4dccf] text-ink' },
+  { title: 'Privacidade sem paranoia', tag: 'Segurança', tone: 'bg-white text-ink' },
 ];
 
 const SOCIALS = [['Facebook', 'f'], ['X', 'X'], ['Instagram', 'ig']];
@@ -130,13 +130,13 @@ function News() {
                 <button key={k} ref={el => (refs.current[k] = el)} role="tab" id={'tab-' + k}
                   aria-selected={on} aria-controls="painel-noticia" tabIndex={on ? 0 : -1}
                   onClick={() => setI(k)}
-                  className={`cut-tl min-h-[88px] rounded-[14px] px-5 py-4 text-left text-lg font-semibold leading-snug transition duration-200 hover:translate-x-1 ${on ? 'bg-ink text-paper' : 'bg-[#e4dccf] text-ink hover:bg-sand'}`}>
+                  className={`cut-tl min-h-[88px] rounded-[14px] px-5 py-4 text-left text-lg font-semibold leading-snug transition duration-200 hover:translate-x-1 ${on ? 'bg-ink text-paper' : 'bg-white text-ink hover:bg-sand'}`}>
                   {x.tab}
                 </button>
               );
             })}
           </Reveal>
-          <Reveal delay={160} role="tabpanel" id="painel-noticia" aria-labelledby={'tab-' + i} className="bg-[#e4dccf]">
+          <Reveal delay={160} role="tabpanel" id="painel-noticia" aria-labelledby={'tab-' + i} className="bg-white">
             <div key={i} className="swap">
               {n.img && (
                 <img src={n.img} alt={n.alt} width="1920" height="1280" loading="lazy"
@@ -213,7 +213,7 @@ function Newsletter() {
     if (!/^\S+@\S+\.\S+$/.test(form.email)) { setErr('Digite um e-mail válido, como nome@dominio.com.'); return; }
     setDone(true);
   };
-  const field = 'min-h-[48px] w-full bg-paper px-4 text-base text-ink placeholder:text-[#55575c] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink';
+  const field = 'min-h-[48px] w-full bg-paper px-4 text-base text-ink placeholder:text-[#5f5750] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink';
   return (
     <section id="newsletter" className="bg-fox px-4 py-[clamp(72px,10vw,140px)] text-ink sm:px-8">
       <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1fr_1fr] lg:gap-20">
@@ -234,7 +234,7 @@ function Newsletter() {
                   aria-invalid={!!err} aria-describedby={err ? 'erro-email' : undefined} className={field} />
                 {err && <span id="erro-email" role="alert" className="font-semibold">{err}</span>}
               </label>
-              <button type="submit" className="mt-2 inline-flex min-h-[52px] items-center justify-center bg-ink px-7 text-base font-bold text-paper transition duration-200 hover:bg-[#3a3d46] active:scale-[.98]">Assinar</button>
+              <button type="submit" className="mt-2 inline-flex min-h-[52px] items-center justify-center bg-ink px-7 text-base font-bold text-paper transition duration-200 hover:bg-[#3a3532] active:scale-[.98]">Assinar</button>
             </form>
           )}
         </Reveal>

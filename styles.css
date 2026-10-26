@@ -9,8 +9,8 @@ body { -webkit-tap-highlight-color: transparent; overflow-wrap: break-word; }
 a, button, input { touch-action: manipulation; }
 img { height: auto; }
 a { transition: color .15s; }
-a:hover { color: #a64500; }
-:focus-visible { outline: 3px solid #22242a; outline-offset: 3px; }
+a:hover { color: #b84300; }
+:focus-visible { outline: 3px solid #1e1e1e; outline-offset: 3px; }
 
 /* Entrada ao rolar: só esconde se o JS rodou; transform e opacity apenas */
 .js .rv { opacity: 0; transform: translateY(24px);
