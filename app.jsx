@@ -21,11 +21,12 @@ const NEWS = [
     text: 'Aprenda o passo a passo completo de como baixar e instalar o aplicativo UniTV no seu dispositivo de forma rápida e fácil utilizando o app Downloader.',
   },
   {
-    tab: 'IA no celular: o que roda offline',
-    tag: 'Inteligência artificial', author: 'DEX', date: 'Out 2026',
-    img: 'assets/sleeping-vulpes-zerda-at-happy-hollow-closeup.jpg', pos: '50% 40%',
-    alt: 'Raposa-do-deserto dormindo, com as orelhas grandes em destaque',
-    text: 'Testamos tradução, resumo e foto no modo avião. Um guia direto sobre o que já dispensa conexão e o que perde qualidade sem ela.',
+    tab: 'Nuvio, o novo no pedaço',
+    tag: 'Apps', author: 'DEX', date: 'Out 2026',
+    img: 'assets/Publi/Nuvio/capa-home.webp', pos: '50% 50%',
+    alt: 'Capa da matéria sobre o Nuvio: o nome do app em letras grandes ao lado de um mosaico de capas de filmes e um selo 4K',
+    href: 'nuvio.html',
+    text: 'App gratuito e de código aberto que toca filmes e séries em até 4K e funciona com serviços de debrid. Explicamos de um jeito simples o que ele faz.',
   },
   {
     tab: 'O deserto virou laboratório de dados',

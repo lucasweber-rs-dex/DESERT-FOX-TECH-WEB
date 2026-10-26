@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa Nuvio</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --sand:#e2ded7; --paper:#efefef; --ink:#1e1e1e; --fox:#ff5e00; --warm:#83786f; }
+  * { box-sizing:border-box; margin:0; }
+  html, body { width:1500px; height:1000px; overflow:hidden; background:var(--ink); }
+  body { font-family:'Manrope', system-ui, sans-serif; -webkit-font-smoothing:antialiased; position:relative; }
+
+  .glow { position:absolute; inset:0;
+    background:radial-gradient(700px 520px at 18% 30%, rgba(255,94,0,.30), transparent 65%),
+               radial-gradient(800px 600px at 100% 100%, rgba(131,120,111,.30), transparent 60%); }
+
+  /* Mosaico de capas inclinado, sumindo para a esquerda */
+  .wall { position:absolute; right:-160px; top:-260px; width:980px; height:1600px; transform:rotate(14deg);
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;
+    -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 38%); mask-image:linear-gradient(90deg, transparent 0%, #000 38%); }
+  .col { display:flex; flex-direction:column; gap:22px; }
+  .col:nth-child(2) { margin-top:-140px; } .col:nth-child(3) { margin-top:-60px; } .col:nth-child(4) { margin-top:-200px; }
+  .col img { width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:16px; box-shadow:0 30px 60px -20px rgba(0,0,0,.7); }
+  .shade { position:absolute; inset:0; background:linear-gradient(90deg, var(--ink) 30%, rgba(30,30,30,.55) 55%, rgba(30,30,30,.15) 100%); }
+
+  .txt { position:absolute; left:110px; top:130px; width:760px; color:var(--paper); }
+  .chip { display:inline-flex; align-items:center; gap:12px; font-weight:700; font-size:26px; letter-spacing:.1em; text-transform:uppercase; color:var(--fox); }
+  .chip i { width:12px; height:12px; border-radius:50%; background:var(--fox); display:block; box-shadow:0 0 0 6px rgba(255,94,0,.2); }
+  h1 { margin-top:26px; font-size:250px; line-height:.82; font-weight:800; letter-spacing:-.06em; }
+  h1 span { color:var(--fox); }
+  h2 { margin-top:28px; font-size:64px; line-height:1.02; font-weight:700; letter-spacing:-.035em; color:var(--sand); }
+
+  .tags { position:absolute; left:110px; bottom:110px; display:flex; gap:14px; }
+  .tags span { height:64px; padding:0 28px; display:inline-flex; align-items:center; border-radius:999px; font-size:26px; font-weight:800;
+    border:2px solid rgba(239,239,239,.25); color:var(--paper); background:rgba(239,239,239,.06); }
+  .tags span.on { background:var(--fox); border-color:var(--fox); color:var(--ink); }
+
+  .badge { position:absolute; right:120px; bottom:120px; width:190px; height:190px; border-radius:50%; background:var(--paper); color:var(--ink);
+    display:grid; place-items:center; text-align:center; box-shadow:0 30px 60px -20px rgba(0,0,0,.7); transform:rotate(-10deg); }
+  .badge b { display:block; font-size:78px; line-height:.9; font-weight:800; letter-spacing:-.05em; }
+  .badge small { display:block; font-size:20px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-top:6px; color:var(--fox); }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wall">
+    <div class="col"><img src="../../../Poster/img (6).jpg"><img src="../../../Poster/toystory5.jpg"><img src="../../../Poster/robin.jpg"><img src="../../../Poster/img (8).jpg"></div>
+    <div class="col"><img src="../../../Poster/img.jpg"><img src="../../../Poster/img (10).jpg"><img src="../../../Poster/img (9).jpg"><img src="../../../Poster/diad.jpg"></div>
+    <div class="col"><img src="../../../Poster/minions.jpg"><img src="../../../Poster/img (11).jpg"><img src="../../../Poster/wheight.jpg"><img src="../../../Poster/img (4).jpg"></div>
+    <div class="col"><img src="../../../Poster/img (7).jpg"><img src="../../../Poster/img (4).jpg"><img src="../../../Poster/img (6).jpg"><img src="../../../Poster/minions.jpg"></div>
+  </div>
+  <div class="shade"></div>
+
+  <div class="txt">
+    <span class="chip"><i></i>Novo app · Open-source</span>
+    <h1>Nuvio<span>.</span></h1>
+    <h2>O novo<br>no pedaço.</h2>
+  </div>
+  <div class="tags"><span class="on">Grátis</span><span>Debrid</span><span>Android · iPhone · TV</span></div>
+  <div class="badge"><div><b>4K</b><small>HDR</small></div></div>
+</body>
+</html>
