@@ -23,7 +23,7 @@ Uma única página, montada em `app.jsx`.
 | Artigos | `#artigos` | Três cards. “Sinal e ruído no seu feed” ocupa a coluna maior e leva a foto do ALMA. Os outros dois são só cor e texto. Os links apontam para `#`. |
 | Banner | sem âncora | Bloco “Leve tech: só o essencial”, com o céu do Saara à direita no desktop. |
 | Newsletter | `#newsletter` | Formulário de nome e e-mail. A validação acontece no navegador. Nenhum dado sai da página. |
-| Rodapé | sem âncora | Telefone, e-mail, redes, menu e créditos das fotos. Os itens de menu e as redes apontam para `#`. |
+| Rodapé | sem âncora | Logo DEX-TECH e copyright. |
 
 O menu do topo leva a Notícias, Artigos e Newsletter. Há um link “Pular para o conteúdo” que aparece no foco do teclado.
 
@@ -78,7 +78,7 @@ Para encerrar, pare o processo no terminal (`Ctrl+C`).
 | Caminho | Função |
 | --- | --- |
 | `index.html` | Documento de entrada. Meta tags, fonte, Tailwind, React, Babel e a montagem de `#root`. |
-| `app.jsx` | Componentes: `Nav`, `Hero`, `News`, `Articles`, `Banner`, `Newsletter`, `Footer`, `App`. Também os arrays `NEWS`, `ARTICLES`, `SOCIALS` e `MENU`. |
+| `app.jsx` | Componentes: `Nav`, `Hero`, `News`, `Articles`, `Banner`, `Newsletter`, `Footer`, `App`. Também os arrays `NEWS` e `ARTICLES`. |
 | `styles.css` | Cantos cortados, foco visível, animações e reduced motion. |
 | `assets/` | Fotos usadas na página e `credits.json`. |
 | `assets/credits.json` | Licença, autor e página no Wikimedia de cada foto de terceiros. |
@@ -95,16 +95,13 @@ Tudo que o visitante lê está em `app.jsx`, no topo do arquivo e no `Footer`.
 
 - **Notícias.** Array `NEWS`. Cada item tem `tab`, `tag`, `author`, `date`, `text` e, quando houver foto, `img`, `pos` e `alt`. Sem `img`, o painel mostra só o texto. O painel só renderiza a imagem se `n.img` existir.
 - **Artigos.** Array `ARTICLES`. `big: true` faz o card ocupar as duas linhas no desktop. `img` é opcional.
-- **Redes e menu do rodapé.** Arrays `SOCIALS` e `MENU`. Os `href` ainda são `#`.
-- **Contato.** Links `tel:` e `mailto:` dentro de `Footer`.
-- **Créditos visíveis.** Parágrafo “Fotos:” no `Footer`. Mantenha esse parágrafo igual ao que `assets/credits.json` lista para as fotos que a página realmente exibe.
 - **Título e descrição do documento.** `<title>` e `<meta name="description">` em `index.html`.
 
 A newsletter, em `Newsletter`, exige um e-mail no formato `texto@texto.texto`. Com o campo válido, troca o formulário por uma mensagem de confirmação. Não há `fetch`, endpoint nem serviço de e-mail.
 
 ## Imagens e licenças
 
-Fotos de terceiros vêm do Wikimedia Commons. O crédito exigido pela licença está no rodapé e a ficha completa está em `assets/credits.json`. Se trocar uma foto, atualize o arquivo, o `alt`, o rodapé e o JSON.
+Fotos de terceiros vêm do Wikimedia Commons. A ficha completa está em `assets/credits.json`. O crédito visível que as licenças exigem foi retirado do rodapé a pedido do autor (veja Limites atuais). Se trocar uma foto, atualize o arquivo, o `alt` e o JSON.
 
 | Arquivo | Onde aparece | Licença |
 | --- | --- | --- |
@@ -244,7 +241,8 @@ Para recriar a zona: mantenha os nameservers, apague A ou CNAME antigo de parkin
 ## Limites atuais
 
 - A newsletter confirma a inscrição só na tela.
-- Artigos, menu do rodapé e redes sociais não abrem páginas reais.
-- Telefone, e-mail e textos das matérias são fictícios.
+- Os artigos não abrem páginas reais.
+- Os textos das matérias são fictícios.
+- As fotos do Wikimedia Commons (CC BY e CC BY-SA) estão sem o crédito visível que as licenças exigem.
 - A ficha de “Night Skies at Little Sahara” em `credits.json` aponta para um arquivo que não está no repositório.
 - Os endereços `*.vercel.app` podem exigir login da Vercel. `https://desertfoxlabs.com` abre sem esse login.

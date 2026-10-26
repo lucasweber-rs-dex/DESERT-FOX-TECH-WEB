@@ -42,8 +42,6 @@ const ARTICLES = [
   { title: 'Privacidade sem paranoia', tag: 'Segurança', tone: 'bg-white text-ink' },
 ];
 
-const SOCIALS = [['Facebook', 'f'], ['X', 'X'], ['Instagram', 'ig']];
-const MENU = ['Sobre', 'Vagas', 'Contato', 'Anuncie', 'Termos', 'Perguntas frequentes', 'Privacidade', 'Marca', 'Mapa do site', 'Downloads'];
 
 /* Entrada ao rolar: cada parte da seção entra em sequência, uma única vez. */
 function Reveal({ as: Tag = 'div', delay = 0, className = '', children, ...rest }) {
@@ -345,34 +343,11 @@ function Newsletter() {
 }
 
 function Footer() {
-  const h = 'm-0 mb-3 text-lg font-extrabold';
   return (
     <footer className="bg-paper px-4 pt-[clamp(56px,8vw,112px)] pb-8 sm:px-8">
-      <div className="mx-auto grid max-w-[1280px] gap-12 text-base leading-relaxed sm:grid-cols-2 lg:grid-cols-[1.2fr_1.4fr_1fr]">
-        <div className="flex flex-col gap-3">
-          <h2 className={h}>Fale com a gente</h2>
-          <a href="tel:+442048799956" className="flex min-h-[44px] items-center underline">Tel.: +44 (0)20 487 9956</a>
-          <a href="mailto:contato@dex-tech-labs.com" className="flex min-h-[44px] items-center break-all underline">contato@dex-tech-labs.com</a>
-          <div className="mt-3 flex gap-2">
-            {SOCIALS.map(([label, s]) => (
-              <a key={s} href="#" aria-label={label} className="grid h-11 w-11 place-items-center rounded-[3px] bg-ink font-extrabold text-paper transition hover:!bg-fox hover:!text-ink">{s}</a>
-            ))}
-          </div>
-        </div>
-        <blockquote className="m-0 text-[clamp(22px,2.2vw,28px)] font-semibold leading-snug text-balance">
-          “O fennec ouve os insetos sob a areia. Nós ouvimos o que importa.”
-        </blockquote>
-        <nav aria-label="Rodapé">
-          <h2 className={h}>Menu</h2>
-          <ul className="m-0 grid list-none grid-cols-2 gap-x-4 p-0">
-            {MENU.map(m => <li key={m}><a href="#" className="flex min-h-[44px] items-center">{m}</a></li>)}
-          </ul>
-        </nav>
-      </div>
-      <img src="assets/logo-dex-tech.png" width="988" height="126" alt="DEX-TECH" className="mx-auto mt-14 block h-auto w-full max-w-[1280px]" />
+      <img src="assets/logo-dex-tech.png" width="988" height="126" alt="DEX-TECH" className="mx-auto block h-auto w-full max-w-[1280px]" />
       <div className="mx-auto mt-10 max-w-[1280px] text-sm leading-relaxed">
         <p className="m-0">© {new Date().getFullYear()} DEX-TECH-LABS</p>
-        <p className="m-0 mt-2 max-w-[75ch]">Fotos: <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sahara_Night_Sky_(229876491).jpeg">“Sahara Night Sky”</a> por Dominik Angstwurm (CC BY-SA 3.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sleeping_Vulpes_zerda_at_Happy_Hollow,_closeup.jpg">raposa-do-deserto dormindo</a> por Grendelkhan (CC BY-SA 4.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:The_Atacama_Large_Millimeter_Array_(ALMA)_by_night,_under_the_Magellanic_Clouds.jpg">ALMA à noite</a> por ESO/C. Malin (CC BY 4.0). Via Wikimedia Commons.</p>
       </div>
     </footer>
   );
