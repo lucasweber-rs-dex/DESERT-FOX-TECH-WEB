@@ -13,7 +13,7 @@ const NEWS = [
     text: 'O app essencial para quem usa TV Box ou Fire TV Stick: instale aplicativos de fora da loja oficial usando só um link ou código. Veja o passo a passo completo.',
   },
   {
-    tab: 'INSTALANDO UNITV DE MANEIRA FÁCIL',
+    tab: 'Guia Instalação UNITV',
     tag: 'Tutorial', author: 'DEX', date: 'Out 2026',
     img: 'assets/Publi/UniTV/capa-home.webp', pos: '50% 50%',
     alt: 'Capa do tutorial Instalando UniTV: ícones do Downloader e do UniTV lado a lado sobre fundo escuro com brilho laranja',
@@ -79,7 +79,7 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="grid bg-sand lg:min-h-[min(100svh,860px)] lg:grid-cols-[7fr_5fr] xl:grid-cols-[6fr_6fr]">
-      <div className="flex flex-col px-4 pb-12 sm:px-8 lg:pb-16">
+      <div className="flex flex-col bg-[#E74C3C] px-4 pb-12 sm:px-8 lg:pb-16">
         <Nav />
         <div className="flex flex-1 flex-col justify-center gap-8 pt-12 lg:pt-8">
           <h1 className="m-0 text-[clamp(44px,14.5vw,84px)] font-extrabold leading-[.92] tracking-[-.04em] lg:text-[clamp(72px,8vw,128px)]">
@@ -130,7 +130,7 @@ function News() {
                 <button key={k} ref={el => (refs.current[k] = el)} role="tab" id={'tab-' + k}
                   aria-selected={on} aria-controls="painel-noticia" tabIndex={on ? 0 : -1}
                   onClick={() => setI(k)}
-                  className={`cut-tl min-h-[88px] rounded-[14px] px-5 py-4 text-left text-lg font-semibold leading-snug transition duration-200 hover:translate-x-1 ${on ? 'bg-ink text-paper' : 'bg-white text-ink hover:bg-sand'}`}>
+                  className="cut-tl min-h-[88px] rounded-[14px] bg-[#2C3E50] py-4 pl-12 pr-5 text-left text-lg font-semibold leading-snug text-paper transition duration-200 hover:translate-x-1 hover:bg-[#E74C3C]">
                   {x.tab}
                 </button>
               );
