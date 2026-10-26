@@ -78,11 +78,11 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="grid bg-sand lg:min-h-[min(100svh,860px)] lg:grid-cols-[7fr_5fr] xl:grid-cols-[6fr_6fr]">
-      <div className="flex flex-col bg-[#E74C3C] px-4 pb-12 sm:px-8 lg:pb-16">
+    <section id="top" className="grid bg-sand lg:min-h-[min(70svh,602px)] lg:grid-cols-[7fr_5fr] xl:grid-cols-[6fr_6fr]">
+      <div className="flex flex-col px-4 pb-[2.1rem] sm:px-8 lg:pb-[2.8rem]">
         <Nav />
-        <div className="flex flex-1 flex-col justify-center gap-8 pt-12 lg:pt-8">
-          <h1 className="m-0 text-[clamp(44px,14.5vw,84px)] font-extrabold leading-[.92] tracking-[-.04em] lg:text-[clamp(72px,8vw,128px)]">
+        <div className="flex flex-1 flex-col justify-center gap-[1.4rem] pt-[2.1rem] lg:pt-[1.4rem]">
+          <h1 className="m-0 text-[clamp(31px,10.15vw,59px)] font-extrabold leading-[.92] tracking-[-.04em] lg:text-[clamp(50px,5.6vw,90px)]">
             <Reveal as="span" className="block">Sinal.</Reveal>
             <Reveal as="span" delay={90} className="block">Sem ruído.</Reveal>
           </h1>
@@ -94,7 +94,7 @@ function Hero() {
           </Reveal>
         </div>
       </div>
-      <div className="relative min-h-[400px] overflow-hidden md:min-h-[560px] lg:min-h-0">
+      <div className="relative min-h-[226px] overflow-hidden md:min-h-[338px] lg:min-h-0">
         <img src="assets/hero-antena.webp" width="1536" height="1024" fetchpriority="high"
           alt="Grande antena parabólica de radiotelescópio sob céu azul, no meio do deserto com arbustos secos e montanhas ao fundo"
           className="hero-img absolute inset-0 h-full w-full object-cover [object-position:54%_50%]" />
@@ -130,7 +130,7 @@ function News() {
                 <button key={k} ref={el => (refs.current[k] = el)} role="tab" id={'tab-' + k}
                   aria-selected={on} aria-controls="painel-noticia" tabIndex={on ? 0 : -1}
                   onClick={() => setI(k)}
-                  className="cut-tl min-h-[88px] rounded-[14px] bg-[#2C3E50] py-4 pl-12 pr-5 text-left text-lg font-semibold leading-snug text-paper transition duration-200 hover:translate-x-1 hover:bg-[#E74C3C]">
+                  className="cut-tl min-h-[88px] rounded-[14px] bg-[#2C3E50] py-4 pl-12 pr-5 text-left font-disket text-base font-bold leading-snug text-paper transition duration-200 hover:translate-x-1 hover:bg-[#E74C3C]">
                   {x.tab}
                 </button>
               );
@@ -142,7 +142,7 @@ function News() {
                 <img src={n.img} alt={n.alt} width="1920" height="1280" loading="lazy"
                   className="aspect-[3/2] w-full object-cover" style={{ objectPosition: n.pos }} />
               )}
-              <div className="flex flex-col gap-4 bg-[#E74C3C] p-6 sm:p-9">
+              <div className="flex flex-col gap-4 bg-sand p-6 sm:p-9">
                 <h3 className="m-0 text-[clamp(26px,3vw,40px)] font-extrabold leading-[1.05] tracking-[-.02em]">{n.tab}</h3>
                 <p className="m-0 max-w-[60ch] text-lg leading-relaxed">{n.text}</p>
                 {n.href && <a href={n.href} className={btn + ' self-start'}>Ler matéria completa</a>}

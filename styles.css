@@ -1,3 +1,12 @@
+/* Disket Mono Bold, Mariano Diez. */
+@font-face {
+  font-family: "Disket Mono";
+  src: url("assets/fonts/DisketMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Cantos cortados: --cut controla o tamanho do corte (a "orelha" do fennec) */
 .cut-tl { clip-path: polygon(var(--cut,40px) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut,40px)); }
 .cut-banner { --cut: 80px;
