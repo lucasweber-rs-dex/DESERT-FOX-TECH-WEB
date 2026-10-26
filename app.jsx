@@ -2,15 +2,15 @@ const { useState, useEffect, useRef } = React;
 
 document.documentElement.classList.add('js');
 
-/* Conteúdo de exemplo: trocar pelas matérias reais antes de publicar. */
+/* Matérias da seção "Fique Por Dentro": cada uma abre a sua página. */
 const NEWS = [
   {
-    tab: 'DOWNLOADER Como Instalar ?',
+    tab: 'DOWNLOADER: Como Instalar?',
     tag: 'Tutorial', author: 'DEX', date: 'Out 2026',
     img: 'assets/Publi/Downloader/logo.png', pos: '50% 50%',
     alt: 'Logotipo do aplicativo Downloader, letra D branca com seta de download sobre fundo laranja',
     href: 'downloader.html',
-    text: 'O app essencial para quem usa TV Box ou Fire TV Stick: instale aplicativos de fora da loja oficial usando só um link ou código. Veja o passo a passo completo.',
+    text: 'O app essencial para quem usa TV Box: instale aplicativos de fora da loja oficial usando só um link ou código. Veja o passo a passo completo.',
   },
   {
     tab: 'Guia Instalação UNITV',
@@ -238,7 +238,7 @@ function News() {
                 <button key={k} ref={el => (refs.current[k] = el)} role="tab" id={'tab-' + k}
                   aria-selected={on} aria-controls="painel-noticia" tabIndex={on ? 0 : -1}
                   onClick={() => setI(k)}
-                  className="cut-tl min-h-[88px] rounded-[14px] bg-[#2C3E50] py-4 pl-12 pr-5 text-left font-disket text-base font-bold leading-snug text-paper transition duration-200 hover:translate-x-1 hover:bg-[#E74C3C]">
+                  className={`cut-tl min-h-[88px] rounded-[14px] py-4 pl-12 pr-5 text-left font-disket text-base font-bold leading-snug transition duration-200 hover:translate-x-1 ${on ? 'bg-fox text-ink' : 'bg-[#2C3E50] text-paper hover:bg-[#E74C3C]'}`}>
                   {x.tab}
                 </button>
               );
@@ -369,7 +369,7 @@ function Newsletter() {
             <li>✓ Alertas como o do Fire Stick, antes de você comprar</li>
           </ul>
           {done ? (
-            <div role="status" className="bg-paper p-6 text-lg">Obrigado, {form.name || 'leitor'}! Inscrição confirmada. A próxima carta chega no seu e-mail.</div>
+            <div role="status" className="bg-paper p-6 text-lg">Obrigado, {form.name || 'leitor'}! Inscrição confirmada. O próximo resumo chega no seu e-mail.</div>
           ) : (
             <form onSubmit={submit} noValidate className="flex flex-col gap-4">
               <label className="flex flex-col gap-1.5 text-base font-semibold">Nome
