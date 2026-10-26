@@ -18,7 +18,7 @@ Uma única página, montada em `app.jsx`.
 
 | Seção | Âncora | Comportamento |
 | --- | --- | --- |
-| Hero | `#top` | Título “Sinal. Sem ruído.”, chamada para a newsletter e a arte `assets/tech-park-sam.png`. |
+| Hero | `#top` | Título “Sinal. Sem ruído.”, chamada para a newsletter e a foto `assets/hero-antena.webp`. |
 | Notícias | `#noticias` | Quatro abas. A aba ativa troca o texto do painel `#painel-noticia`. A matéria “INSTALANDO UNITV DE MANEIRA FÁCIL” não tem foto. |
 | Artigos | `#artigos` | Três cards. “Sinal e ruído no seu feed” ocupa a coluna maior e leva a foto do ALMA. Os outros dois são só cor e texto. Os links apontam para `#`. |
 | Banner | sem âncora | Bloco “Leve tech: só o essencial”, com o céu do Saara à direita no desktop. |
@@ -108,7 +108,7 @@ Fotos de terceiros vêm do Wikimedia Commons. O crédito exigido pela licença e
 
 | Arquivo | Onde aparece | Licença |
 | --- | --- | --- |
-| `assets/tech-park-sam.png` | Hero | Arte própria do projeto. Não entra em `credits.json`. |
+| `assets/hero-antena.webp` | Hero | Imagem enviada pelo autor do projeto. Não entra em `credits.json`. |
 | `assets/sahara-night-sky.jpg` | Notícia “Chips de 2 nm…” e banner | “Sahara Night Sky”, Dominik Angstwurm, CC BY-SA 3.0 |
 | `assets/sleeping-vulpes-zerda-at-happy-hollow-closeup.jpg` | Notícia “IA no celular…” | Grendelkhan, CC BY-SA 4.0 |
 | `assets/the-atacama-large-millimeter-array-alma-by.jpg` | Notícia “O deserto virou laboratório de dados” e artigo “Sinal e ruído no seu feed” | ESO/C. Malin, CC BY 4.0 |

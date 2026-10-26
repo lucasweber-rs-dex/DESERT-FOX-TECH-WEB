@@ -95,9 +95,9 @@ function Hero() {
         </div>
       </div>
       <div className="relative min-h-[400px] overflow-hidden md:min-h-[560px] lg:min-h-0">
-        <img src="assets/tech-park-sam.png" width="3652" height="1860" fetchpriority="high"
-          alt="Analista de jaleco com fone de ouvido diante de um monitor antigo, sobre colagem em laranja e grafite"
-          className="hero-img absolute inset-0 h-full w-full object-cover [object-position:85%_50%] lg:[object-position:72%_50%]" />
+        <img src="assets/hero-antena.webp" width="1536" height="1024" fetchpriority="high"
+          alt="Grande antena parabólica de radiotelescópio sob céu azul, no meio do deserto com arbustos secos e montanhas ao fundo"
+          className="hero-img absolute inset-0 h-full w-full object-cover [object-position:54%_50%]" />
       </div>
     </section>
   );
