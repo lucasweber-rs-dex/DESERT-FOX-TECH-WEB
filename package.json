@@ -1,0 +1,9 @@
+{
+  "name": "dex-tech-labs-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Landing page responsiva da DEX-TECH-LABS (React + Tailwind via CDN).",
+  "scripts": {
+    "start": "npx --yes serve -l 5173 ."
+  }
+}

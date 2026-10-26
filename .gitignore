@@ -1,0 +1,15 @@
+# Configuração local do Claude Code
+.claude/
+
+# Relatórios e screenshots do inspetor de design
+.taste-skill/
+
+# Dependências e logs
+node_modules/
+*.log
+
+# Sistema operacional / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

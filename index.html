@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEX-TECH-LABS</title>
+<meta name="description" content="DEX-TECH-LABS: notícias, artigos e newsletter sobre tecnologia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+  tailwind.config = {
+    future: { hoverOnlyWhenSupported: true },
+    theme: { extend: {
+      fontFamily: { sans: ['Manrope', 'system-ui', 'sans-serif'] },
+      colors: { sand: '#c5b9a8', paper: '#f2f4f2', ink: '#22242a', fox: '#ff7a1a', foxdark: '#e8650a' }
+    } }
+  }
+</script>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body class="bg-paper text-ink font-sans antialiased">
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js"></script>
+<script type="text/babel" src="./app.jsx" data-presets="react"></script>
+</body>
+</html>
