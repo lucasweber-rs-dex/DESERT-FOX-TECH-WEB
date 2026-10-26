@@ -109,7 +109,8 @@ Fotos de terceiros vêm do Wikimedia Commons. A ficha completa está em `assets/
 | `assets/sahara-night-sky.jpg` | Notícia “Chips de 2 nm…” e banner | “Sahara Night Sky”, Dominik Angstwurm, CC BY-SA 3.0 |
 | `assets/sleeping-vulpes-zerda-at-happy-hollow-closeup.jpg` | Não é mais exibida (a notícia virou “Nuvio, o novo no pedaço”) | Grendelkhan, CC BY-SA 4.0 |
 | `assets/Publi/Nuvio/capa-home.webp` | Notícia “Nuvio, o novo no pedaço” | Arte própria, feita com as capas de `assets/Poster`. Fonte em `assets/Publi/Nuvio/capa-src/`. |
-| `assets/the-atacama-large-millimeter-array-alma-by.jpg` | Notícia “O deserto virou laboratório de dados” e artigo “Sinal e ruído no seu feed” | ESO/C. Malin, CC BY 4.0 |
+| `assets/Publi/FireStick/capa-home.webp` | Notícia “Firestick, de herói a vilão” | Arte própria. Fonte em `assets/Publi/FireStick/capa-src/`. |
+| `assets/the-atacama-large-millimeter-array-alma-by.jpg` | Artigo “Sinal e ruído no seu feed” | ESO/C. Malin, CC BY 4.0 |
 
 CC BY-SA pede que uma versão alterada (recorte de cor, montagem com outra imagem) saia com a mesma licença. Os arquivos acima são as fotos como foram salvas.
 

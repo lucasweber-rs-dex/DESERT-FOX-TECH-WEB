@@ -29,11 +29,12 @@ const NEWS = [
     text: 'App gratuito e de código aberto que toca filmes e séries em até 4K e funciona com serviços de debrid. Explicamos de um jeito simples o que ele faz.',
   },
   {
-    tab: 'O deserto virou laboratório de dados',
-    tag: 'Ciência', author: 'DEX', date: 'Out 2026',
-    img: 'assets/the-atacama-large-millimeter-array-alma-by.jpg', pos: '50% 50%',
-    alt: 'Antenas do observatório ALMA à noite, no deserto do Atacama',
-    text: 'Céu limpo, ar seco e silêncio de rádio: o Atacama reúne o que um telescópio precisa. E gera tantos dados que o desafio agora é guardá-los.',
+    tab: 'Firestick, de herói a vilão',
+    tag: 'Opinião', author: 'DEX', date: 'Out 2026',
+    img: 'assets/Publi/FireStick/capa-home.webp', pos: '50% 50%',
+    alt: 'Capa sensacionalista: um Fire Stick desenhado como vilão, com chifres, olhos vermelhos, sorriso malvado e um cadeado, ao lado do título Fire Stick: de herói a vilão',
+    href: 'firestick.html',
+    text: 'Os Fire TV Sticks novos não instalam mais apps de fora da loja da Amazon. O aparelho que caiu na graça do povo virou as costas. Ainda vale comprar?',
   },
 ];
 
