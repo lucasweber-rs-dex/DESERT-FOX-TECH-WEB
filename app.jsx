@@ -14,8 +14,6 @@ const NEWS = [
   {
     tab: 'Open source pede financiamento fixo',
     tag: 'Software', author: 'DEX', date: 'Out 2026',
-    img: 'assets/sand-dunes-in-the-sahara-desert-on.jpg', pos: '30% 50%',
-    alt: 'Pessoa sentada sobre dunas no deserto, com ondulações na areia em primeiro plano',
     text: 'Projetos usados por milhões de empresas ainda dependem de poucas pessoas. Mapeamos quem paga, quem não paga e quais modelos de apoio já funcionam.',
   },
   {
@@ -136,8 +134,10 @@ function News() {
           </Reveal>
           <Reveal delay={160} role="tabpanel" id="painel-noticia" aria-labelledby={'tab-' + i} className="bg-[#e4dccf]">
             <div key={i} className="swap">
-              <img src={n.img} alt={n.alt} width="1920" height="1280" loading="lazy"
-                className="aspect-[3/2] w-full object-cover" style={{ objectPosition: n.pos }} />
+              {n.img && (
+                <img src={n.img} alt={n.alt} width="1920" height="1280" loading="lazy"
+                  className="aspect-[3/2] w-full object-cover" style={{ objectPosition: n.pos }} />
+              )}
               <div className="flex flex-col gap-4 p-6 sm:p-9">
                 <h3 className="m-0 text-[clamp(26px,3vw,40px)] font-extrabold leading-[1.05] tracking-[-.02em]">{n.tab}</h3>
                 <p className="m-0 max-w-[60ch] text-lg leading-relaxed">{n.text}</p>
@@ -179,16 +179,6 @@ function Articles() {
           ))}
         </div>
       </div>
-    </section>
-  );
-}
-
-function Band() {
-  return (
-    <section className="pb-[clamp(72px,10vw,160px)]">
-      <img src="assets/sand-dunes-in-the-sahara-desert-on.jpg" width="1920" height="937" loading="lazy"
-        alt="Dunas do Saara ao entardecer, com ondulações na areia"
-        className="h-[clamp(240px,42vw,600px)] w-full object-cover [object-position:40%_60%]" />
     </section>
   );
 }
@@ -276,7 +266,7 @@ function Footer() {
       <p className="mx-auto mt-14 max-w-[1280px] whitespace-nowrap text-[clamp(36px,9.4vw,150px)] font-extrabold leading-[.9] tracking-[-.04em]">DEX-TECH-LABS</p>
       <div className="mx-auto mt-10 max-w-[1280px] text-sm leading-relaxed">
         <p className="m-0">© {new Date().getFullYear()} DEX-TECH-LABS</p>
-        <p className="m-0 mt-2 max-w-[75ch]">Fotos: <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sand_dunes_in_the_Sahara_Desert_on_the_border_of_Algeria_and_Morocco.tif">dunas do Saara</a> por Dr. Ondřej Havelka (CC BY 4.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sahara_Night_Sky_(229876491).jpeg">“Sahara Night Sky”</a> por Dominik Angstwurm (CC BY-SA 3.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sleeping_Vulpes_zerda_at_Happy_Hollow,_closeup.jpg">raposa-do-deserto dormindo</a> por Grendelkhan (CC BY-SA 4.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:The_Atacama_Large_Millimeter_Array_(ALMA)_by_night,_under_the_Magellanic_Clouds.jpg">ALMA à noite</a> por ESO/C. Malin (CC BY 4.0). Via Wikimedia Commons.</p>
+        <p className="m-0 mt-2 max-w-[75ch]">Fotos: <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sahara_Night_Sky_(229876491).jpeg">“Sahara Night Sky”</a> por Dominik Angstwurm (CC BY-SA 3.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:Sleeping_Vulpes_zerda_at_Happy_Hollow,_closeup.jpg">raposa-do-deserto dormindo</a> por Grendelkhan (CC BY-SA 4.0); <a className="underline" href="https://commons.wikimedia.org/wiki/File:The_Atacama_Large_Millimeter_Array_(ALMA)_by_night,_under_the_Magellanic_Clouds.jpg">ALMA à noite</a> por ESO/C. Malin (CC BY 4.0). Via Wikimedia Commons.</p>
       </div>
     </footer>
   );
@@ -286,7 +276,7 @@ function App() {
   return (
     <div className="min-h-[100svh] overflow-x-hidden bg-paper">
       <a href="#conteudo" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-3 focus:text-paper">Pular para o conteúdo</a>
-      <Hero /><main id="conteudo"><News /><Articles /><Band /><Banner /><Newsletter /></main><Footer />
+      <Hero /><main id="conteudo"><News /><Articles /><Banner /><Newsletter /></main><Footer />
     </div>
   );
 }
